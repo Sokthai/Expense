@@ -16,6 +16,8 @@ app.use('/api/email', require("./routers/api/emailer"));
 app.use('/api/password', require("./routers/api/password"));
 
 
+
+//set static for production
 if (process.env.NODE_ENV === 'production'){
     app.use(express.static('client/build'));
     app.get('*', (req, res) => {
