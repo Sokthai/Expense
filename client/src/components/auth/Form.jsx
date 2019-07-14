@@ -41,7 +41,6 @@ export default function Form(props){
                     :
                     <input type="email" placeholder="Email" name="email" value={email} onChange={e => props.onChange(e)} disabled required/>
                     }
-                    <small className="form-text">This site uses Gravatar so if you want a profile image, use a Gravatar email</small>
                 </div>
 
                 {(props.title === "Sign Up")? register : ""}
