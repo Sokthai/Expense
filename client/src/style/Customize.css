@@ -1,0 +1,189 @@
+.welcomePage{
+    margin: auto;
+    font-size: 40px;
+    color: green;
+    text-align: center;
+}
+
+.delete{
+    padding-top: 10px;
+    margin-top: 10px;
+    width: 93px;
+}
+
+
+
+
+
+.right,
+.left{
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+.top{
+    overflow: auto;
+}
+
+
+.right .button,
+.left .button{
+    display: block;
+    margin: 10px;
+    
+}
+
+.bottom .button{
+    margin-left: 10px;
+    margin-right: 10px;
+    display: block;
+}
+
+.button{
+    padding: 15px;
+    font-size: 18px;
+    overflow: hidden;
+}
+
+.forgetPassword{
+    margin-left: 20px;
+}
+
+select:disabled{
+    color: black;
+}
+
+.chart{
+    width: 80%;
+    margin: auto;
+    display: "flex"; 
+    
+    /* flexWrap: "wrap" */
+}
+
+.VictoryContainer{
+    height: 60%;
+    color: rgb(14, 7, 7)
+}
+
+/* .chartContainer{
+    border: 1px solid green;
+} */
+
+.mark{
+    /* display: inline-block; */
+    padding-left: 40px;
+    background-color: white;
+}
+
+.markLabel{
+    height: 30px;
+    width: 110px;
+    text-align: center;
+    display: inline-block;
+    font-size: 15px;
+    color: black;
+    /* text-shadow: 1px 1px black; */
+}
+
+.cate0,
+.food{
+    background-color: orange;
+}
+
+.cate1,
+.gas{
+    background-color: green;
+}
+.cate2,
+.cloth{
+    background-color: yellow;
+}
+.cate3,
+.eatout{
+    background-color: palevioletred;
+}
+.cate4,
+.electronic{
+    background-color: darkgoldenrod;
+}
+.cate5,
+.merchandise{
+    background-color: brown;
+}
+.cate6,
+.service{
+    background-color: mediumpurple;
+}
+.cate7,
+.fun{
+    background-color: paleturquoise;
+}
+.cate8,
+.travel{
+    background-color: lightgreen;
+}
+.cate9,
+.mis{
+    background-color: gray;
+}
+
+.leftMark,
+.rightMark{
+    height: 30px;
+    
+}
+
+
+.monthly{
+    border: 1px solid black;
+    margin: 10px;
+    
+    width: 300px;
+}
+
+
+
+.monthly li{
+    display: block;
+    padding-left: 10px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+
+
+
+.expenseHistory ul{
+    display: inline-block;
+    padding: 5px;
+}
+
+.expenseHistory{
+    margin: auto;
+}
+
+.caption{
+    text-align: center;
+}
+
+.innerExpense{
+    margin: auto;
+    width: 650px;
+}
+
+.expense{
+    /* text-align: right; */
+    float: right;
+    padding-right: 10px;
+}
+
+.total{
+    background-color: pink;
+    
+}
+
+.total > .expense{
+    font-size: 18px;
+}
