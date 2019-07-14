@@ -16,8 +16,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "uuid": "^3.3.2",
-    "victory": "^32.3.3",
-    "webpack-dev-server": "^3.7.2"
+    "victory": "^32.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
