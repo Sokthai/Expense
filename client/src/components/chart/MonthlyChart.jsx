@@ -69,8 +69,6 @@ function MonthlyChart({getItems, item : {loading, spending}}) {
 
     function groupingByMonth(){
         let groups ;
-        
-
          groups = spending.reduce(function (r, o) {
             let m = o.purchaseDate.split(('-'))[1];
             let y = o.purchaseDate.split(('-'))[0];
@@ -80,7 +78,6 @@ function MonthlyChart({getItems, item : {loading, spending}}) {
         }, {});
     
         var result = Object.keys(groups).map(function(k){ return groups[k]; });
-        // console.log(result)
         return result;
     }
 
@@ -117,7 +114,7 @@ function MonthlyChart({getItems, item : {loading, spending}}) {
             <div className="chartContainer">
                 <div className="chart">
                     <div className="mark">
-                        <div className="leftMark">
+                        {/* <div className="leftMark">
                             <p className="markLabel food">Food</p>
                             <p className="markLabel gas">Gas</p>
                             <p className="markLabel  cloth">Cloth</p>
@@ -130,7 +127,34 @@ function MonthlyChart({getItems, item : {loading, spending}}) {
                             <p className="markLabel fun">Fun</p>
                             <p className="markLabel travel">Travel</p>
                             <p className="markLabel  mis">Miscellaneous</p>
+                        </div> */}
+                        
+                        <div className="colorMark">
+                            <p className="markLabel food">Food</p>
+                            <p className="markLabel  merchandise">Merchandise</p>
                         </div>
+
+                         <div className="colorMark">
+                            <p className="markLabel gas">Gas</p>
+                            <p className="markLabel  service">Service</p>
+                        </div>
+
+                         <div className="colorMark">
+                            <p className="markLabel  cloth">Cloth</p>
+                            <p className="markLabel fun">Fun</p>
+                        </div>
+
+                         <div className="colorMark">
+                            <p className="markLabel eatout">Eatout</p>
+                            <p className="markLabel travel">Travel</p>
+                        </div>
+
+                         <div className="colorMark">
+                            <p className="markLabel electronic">Electronic</p>
+                            <p className="markLabel  mis">Miscellaneous</p>
+                        </div>
+
+                    
                     </div>
 
                     <VictoryChart

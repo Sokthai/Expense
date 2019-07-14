@@ -496,31 +496,42 @@ button {
 
 /* Mobile Styles */
 @media (max-width: 700px) {
-  .container {
+  /* .container {
     margin-top: 8rem;
-  }
+  } */
 
-  .hide-sm {
+  /* .hide-sm {
+    display: none;
+  } */
+
+  .hide-text{
     display: none;
   }
 
   /* Text Styles */
-  .x-large {
+  /* .x-large {
     font-size: 3rem;
+  } */
+
+  .expenseHistory{
+    width: 330px;
+    margin: auto;
+    
   }
 
-  .large {
+  /* .large {
     font-size: 2rem;
   }
 
   .lead {
     font-size: 1rem;
-  }
+  } */
 
   /* Navbar */
   .navbar {
     display: block;
     text-align: center;
+    height: 80px;
   }
 
   .navbar ul {
@@ -528,27 +539,27 @@ button {
     justify-content: center;
   }
 
-  .navbar h1 {
+  /* .navbar h1 {
     margin-bottom: 1rem;
-  }
+  } */
 
-  .navbar .welcome {
+  /* .navbar .welcome {
     display: none;
-  }
+  } */
 
   /* Profiles Page */
-  .profile {
+  /* .profile {
     grid-template-columns: 1fr;
     text-align: center;
   }
 
   .profile ul {
     display: none;
-  }
+  } */
 
   /* Profile Page */
 
-  .profile-top img,
+  /* .profile-top img,
   .profile img {
     width: 200px;
     margin: auto;
@@ -561,9 +572,9 @@ button {
       'exp'
       'edu'
       'github';
-  }
+  } */
 
-  .profile-about .skills {
+  /* .profile-about .skills {
     flex-direction: column;
   }
 
@@ -579,5 +590,5 @@ button {
   .post a,
   .post button {
     padding: 0.3rem 0.4rem;
-  }
+  } */
 }
