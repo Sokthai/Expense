@@ -87,9 +87,7 @@ export const updateNoteById = (formData, _id) => async dispatch => {
 
 //delete a note by id
 export const deleteNoteById = (_id, history) => async dispatch => {
-    const config = {
-        headers: { 'Content-Type': 'application/json' }
-    }
+  
     try {
         const res = await axios.delete(`/api/note/${_id}`);
         dispatch({

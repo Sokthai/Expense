@@ -12,7 +12,7 @@ function Item({items}) {
             <td className="hide-sm">{item.price}</td>
             <td className="hide-sm">{item.location}</td>
             <td>
-                <Moment format="YYYY/MM/DD">{moment.utc(item.purchaseDate)}</Moment>
+                <Moment format="MM/DD/YYYY">{moment.utc(item.purchaseDate)}</Moment>
             </td>
             <td className="hide-sm">{item.description.substring(0, 15)}...</td>
             <td className="hide-sm">{item.paidBy}</td>

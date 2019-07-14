@@ -30,6 +30,7 @@ function ViewProfile({profiles : {profile, loading}, getProfile, updateUserProfi
     })
 
     const onChange = (e) => setFormData({...formData, [e.target.name] : e.target.value});
+    
     const onSubmit = (e) => {
         e.preventDefault();
         updateUserProfile(formData);

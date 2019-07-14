@@ -38,7 +38,7 @@ function ViewMyNote({note : {notes, loading}, getNotes}) {
                                 <td><Link to={`/api/note/${note._id}`}>{note.subject}</Link></td>
                                 <td>{note.note.substring(0, 40)}...</td>
                                 <td>
-                                    <Moment format="YYYY/MM/DD">{moment.utc(note.date)}</Moment>
+                                    <Moment format="MM/DD/YYYY">{moment.utc(note.date)}</Moment>
                                 </td>
                             </tr>
                         ))}

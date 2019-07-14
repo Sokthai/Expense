@@ -47,15 +47,15 @@ export default function Form(props){
             
 
                 <div className="form-group">
-                    <input type="number" placeholder="Phone" name="phone" value={phone} onChange={e => props.onChange(e)} />
+                    <input type="number" placeholder="Phone" name="phone" value={phone} onChange={e => props.onChange(e)} required/>
                 </div>
 
                 <div className="form-group">
-                    <input type="text" placeholder="Street" name="street"  value={street} onChange={e => props.onChange(e)} />
+                    <input type="text" placeholder="Street" name="street"  value={street} onChange={e => props.onChange(e)} required/>
                 </div>
 
                 <div className="form-group">
-                    <input type="text" placeholder="City" name="city"  value={city} onChange={e => props.onChange(e)} />
+                    <input type="text" placeholder="City" name="city"  value={city} onChange={e => props.onChange(e)} required/>
                 </div>
 
                 <div className="form-group">
@@ -67,7 +67,7 @@ export default function Form(props){
                 </div>
 
                 <div className="form-group">
-                    <input type="number" placeholder="Zipcode" name="zipcode" minLength="5" maxLength="5" value={zipcode} onChange={e => props.onChange(e)} />
+                    <input type="number" placeholder="Zipcode" name="zipcode" minLength="5" maxLength="5" value={zipcode} onChange={e => props.onChange(e)} required/>
                 </div>
                         
                 <div className="form-group">

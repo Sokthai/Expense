@@ -50,7 +50,7 @@ const Navbar = ({ auth: { isAuthenticated, user, loading }, logout }) => {
       {!loading && (
         <Fragment>{isAuthenticated ? 
           <Fragment>
-            <h4>{user && user.firstname.toUpperCase()}</h4>
+            <h4>{user && user.username.toUpperCase()}</h4>
             {authLinks }
           </Fragment>
           :

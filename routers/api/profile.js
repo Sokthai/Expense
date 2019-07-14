@@ -12,12 +12,12 @@ const Profile = require("../../models/Profile");
 // @desc    Create / Update profile (since it is not an array)
 // @access  Private
 router.post('/', [auth,
-        check("phone", "phone is required").not().isEmpty(),
+        // check("phone", "phone is required").not().isEmpty(),
         check("gender", "gender is required").not().isEmpty(),
         check("street", "street is required").not().isEmpty(),
         check("city", "city is required").not().isEmpty(),
         check("state", "state/province is required").not().isEmpty(),
-        check("zipcode", "zipcode is required").not().isEmpty(),
+        // check("zipcode", "zipcode is required").not().isEmpty(),
         check("country", "country is required").not().isEmpty(),
         check('question1', 'Question1 is required').not().isEmpty(),
         check('question2', 'Question2 is required').not().isEmpty(),
