@@ -9,7 +9,6 @@ export const createItem = (formData) => async dispatch => {
         headers : {'Content-Type': 'application/json'}
     }
     try {
-        // console.log(axios.defaults.headers.common['auth-token']);
         const res = await axios.post('/api/item', formData, config);
         dispatch({
             type: ITEM_CREATE_SUCCESS,
@@ -17,7 +16,7 @@ export const createItem = (formData) => async dispatch => {
         })
         dispatch(setAlert("Item created", "success"));
     } catch (error) {
-        // console.log(error.response);
+        console.log(error);
         const errors = error.response.data.errors;
         errors.map(error => dispatch(setAlert(error.msg, 'danger')));
         dispatch({
@@ -42,7 +41,6 @@ export const updateItem = (formData, _id, history) => async dispatch => {
         history.push('/main');//use history to redirect back to "main". in Compoentn we use <Redirect> instead
     } catch (error) {
         console.log(error);
-        console.log(error.response.data.errors);
         const errors = error.response.data.errors;
         errors.map(error => dispatch(setAlert(error.msg, 'danger')));
         dispatch({
@@ -89,7 +87,6 @@ export const getItemById = (_id) => async dispatch => {
 //delete an item by id
 export const deleteItemById = (_id, history) => async dispatch =>{
     try {
-        console.log(`/api/item${_id}`);
         const res = await axios.delete(`/api/item/${_id}`);
         dispatch({
             type: DELETE_AN_ITEM_SUCCESS,

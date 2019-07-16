@@ -19,7 +19,7 @@ function ViewMyNote({note : {notes, loading}, getNotes}) {
 
     return (
         <Fragment>
-            {(loading)? <Spinner/> : (!notes)? <h1>sorry, not item</h1> :
+            {(loading)? <Spinner/> : (!notes)? <h3>Sorry, There is no note in your profile</h3> : (!notes.note)? <h3>Sorry, There is no note in your profile</h3> : 
             
                 <table className="table">
                 {console.log(notes)}
@@ -44,6 +44,7 @@ function ViewMyNote({note : {notes, loading}, getNotes}) {
                         ))}
                     </tbody>    
                 </table>
+                
             }
             
         </Fragment>

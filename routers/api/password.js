@@ -10,7 +10,6 @@ const Password = require("../../models/Password");
 // @access  Public
 route.get('/:id', async (req, res) =>{
     const _id = req.params.id;
-    console.log(_id);
     try {
         const pass = await Password.findOne({user: _id});
         if (!pass || !pass.valid){

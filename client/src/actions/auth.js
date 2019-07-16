@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { REGISTER_FAIL, REGISTER_SUCCESS, USER_LOADED, AUTH_ERROR, LOGIN_SUCCESS, LOGIN_FAIL, CLEAR_PROFILE, LOGOUT, CLEAR_ITEM, RESET_PASSWORD_FAIL, USER_PROFILE_UPDATE_SUCCESS, USER_PROFILE_UPDATE_FAIL } from './types';
+import { REGISTER_FAIL, REGISTER_SUCCESS, USER_LOADED, AUTH_ERROR, LOGIN_SUCCESS, LOGIN_FAIL, CLEAR_PROFILE, LOGOUT, CLEAR_ITEM, RESET_PASSWORD_FAIL, USER_PROFILE_UPDATE_SUCCESS, USER_PROFILE_UPDATE_FAIL, CLEAR_NOTE } from './types';
 import { setAlert } from './alert';
 import setAuthToken from '../utility/setAuthToken';
 import { createProfile } from './profile';
@@ -17,9 +17,19 @@ export const loadUser = () => async dispatch => {
             type: USER_LOADED,
             payload: res.data
         })
+
     } catch (error) {
         dispatch({
             type: AUTH_ERROR
+        });
+        dispatch({
+            type: CLEAR_PROFILE
+        })
+        dispatch({
+            type: CLEAR_ITEM
+        })
+        dispatch({
+            type: CLEAR_NOTE
         })
     }
 
@@ -66,7 +76,6 @@ export const register = ({ firstname, lastname, username, email, password, phone
 export const updateUserProfile = ({ firstname, lastname, username, email, phone, street, city, state, country, zipcode, gender, question1, question2, question3, answer1, answer2, answer3 }) => async dispatch => {
 
     const user = { firstname, lastname, username, email}
-    console.log(user);
     try {
         const config = {
             headers: {
@@ -80,10 +89,9 @@ export const updateUserProfile = ({ firstname, lastname, username, email, phone,
         }) //this dispatch is store only the token to redux with same reducer ("auth")
         
         dispatch(loadUser()); //call this dispatch again to store user to redux with same reducer ("auth")
-        console.log("cn u reach me")
-        // const profile = { phone, street, city, state, country, zipcode, gender, question1, question2, question3, answer1, answer2, answer3 };
+        const profile = { phone, street, city, state, country, zipcode, gender, question1, question2, question3, answer1, answer2, answer3 };
         
-        // dispatch(createProfile(profile));
+        dispatch(createProfile(profile));
 
     } catch (error) {
         console.error(error);
@@ -196,6 +204,9 @@ export const logout = () => async dispatch => {
     dispatch({
         type: CLEAR_ITEM
     });
+    dispatch({
+        type: CLEAR_NOTE
+    })
     dispatch({
         type: LOGOUT
     });

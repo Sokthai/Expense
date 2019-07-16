@@ -53,18 +53,15 @@ router.post('/', [auth,
             if (answer2) profileField.answer.answer2 = answer2;
             if (answer3) profileField.answer.answer3 = answer3;
 
-            console.log(profileField);
             
         try {
             let profile = await Profile.findOne({user:req.user.id});
             if (profile){ //if found, update it
                 profile = await Profile.findOneAndUpdate({user: req.user.id}, {$set : profileField}, {new: true});
-                console.log("profile is udpated");
                 return res.status(200).json(profile);
             }
             //not found, create profile
             profile = new Profile(profileField);
-            console.log("profile is created");
             await profile.save();
             res.status(200).json(profile);
         } catch (error) {
@@ -117,7 +114,6 @@ router.get("/reset/:id", async(req, res) => {
         if (!profile){
             return res.status(400).json({ errors: [{ msg: 'Profile not found' }] });
         }
-        console.log('from backend');
         res.status(200).json(profile);
     } catch (error) {
         console.error(error.message);

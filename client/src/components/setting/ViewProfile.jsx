@@ -29,7 +29,9 @@ function ViewProfile({profiles : {profile, loading}, getProfile, updateUserProfi
         answer3 : ''
     })
 
-    const onChange = (e) => setFormData({...formData, [e.target.name] : e.target.value});
+    const onChange = (e) => {
+        setFormData({...formData, [e.target.name] : e.target.value});
+    }
     
     const onSubmit = (e) => {
         e.preventDefault();
@@ -40,30 +42,31 @@ function ViewProfile({profiles : {profile, loading}, getProfile, updateUserProfi
         getProfile();
         
         setFormData({
-            firstname: loading || !profile? '' : profile.user.firstname,
-            lastname: loading || !profile? '' : profile.user.lastname,
-            username: loading || !profile? '' : profile.user.username,
-            email: loading || !profile? '' : profile.user.email,
-            phone: loading || !profile? '' : profile.phone,
-            street: loading || !profile? '' : profile.street,
-            city: loading || !profile? '' : profile.city,
-            state: loading || !profile? '' : profile.state,
-            country: loading || !profile? '' : profile.country,
-            zipcode: loading || !profile? '' : profile.zipcode,
-            gender: loading || !profile? '' : profile.gender,
-            question1: loading || !profile? '' : profile.question.question1,
-            question2: loading || !profile? '' : profile.question.question2,
-            question3: loading || !profile? '' : profile.question.question3,
-            answer1: loading || !profile? '' : profile.answer.answer1,
-            answer2: loading || !profile? '' : profile.answer.answer2,
-            answer3: loading || !profile? '' : profile.answer.answer3,
+            firstname: (loading || !profile)? '' : profile.user.firstname,
+            lastname: (loading || !profile)? '' : profile.user.lastname,
+            username: (loading || !profile)? '' : profile.user.username,
+            email: (loading || !profile)? '' : profile.user.email,
+            phone: (loading || !profile)? '' : profile.phone,
+            street: (loading || !profile)? '' : profile.street,
+            city: (loading || !profile)? '' : profile.city,
+            state: (loading || !profile)? '' : profile.state,
+            country: (loading || !profile)? '' : profile.country,
+            zipcode: (loading || !profile)? '' : profile.zipcode,
+            gender: (loading || !profile)? '' : profile.gender,
+            question1: (loading || !profile)? '' : profile.question.question1,
+            question2: (loading || !profile)? '' : profile.question.question2,
+            question3: (loading || !profile)? '' : profile.question.question3,
+            answer1: (loading || !profile)? '' : profile.answer.answer1,
+            answer2: (loading || !profile)? '' : profile.answer.answer2,
+            answer3: (loading || !profile)? '' : profile.answer.answer3,
         })
         
-    }, [getProfile, loading, profile]);
+    }, [getProfile, loading]);
 
-
+ 
     return (
         <Fragment>
+            <p style={{color: 'red'}}>Please refresh if nothin is loaded</p>
             { loading? <Spinner/> : <ProfileForm value={formData} onChange={onChange} onSubmit={onSubmit} title="Update Profile"/> }
         </Fragment>
     )

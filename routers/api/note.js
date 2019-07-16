@@ -33,7 +33,7 @@ router.post("/", [auth,
 
         } catch (error) {
             console.error(error.message);
-            res.status(500).json("Server Error");
+            res.status(500).json({ errors: [{ msg: 'Server Error' }] });
         }
 })
 
@@ -58,7 +58,7 @@ router.put("/:id", [auth,
     try {
         const notes = await Note.findOne({user: req.user.id});
         if (!notes || notes === null){
-            return res.status(400).json("No note found")
+            return res.status(400).json({ errors: [{ msg: 'Server Error' }] })
         }
         const updateIndex = notes.note.map(note => note._id).indexOf(_id);
         notes.note[updateIndex] = notesField;
@@ -66,7 +66,7 @@ router.put("/:id", [auth,
         res.status(200).json(notes);
     } catch (error) {
         console.error(error.message);
-        res.status(500).json("Server Error");
+        res.status(500).json({ errors: [{ msg: 'Server Error' }] });
     }
 })
 
@@ -79,16 +79,15 @@ router.delete("/:id", auth, async (req, res) => {
     try {
         const notes = await Note.findOne({user: req.user.id});
         if (!notes || notes === null){
-            return res.status(400).json("No note found")
+            return res.status(400).json({ errors: [{ msg: 'Server Error' }] })
         }
         const deleteIndex = notes.note.map(note => note._id).indexOf(_id);
         notes.note.splice(deleteIndex, 1);
-        console.log(deleteIndex);
         notes.save();
         res.status(200).json(notes);
     } catch (error) {
         console.error(error.message);
-        res.status(500).json("Server Error");
+        res.status(500).json({ errors: [{ msg: 'Server Error' }] });
     }
 })
 
@@ -99,10 +98,10 @@ router.delete("/:id", auth, async (req, res) => {
 router.delete("/", auth, async (req, res) => {
     try {
         await Note.findOneAndRemove({user: req.user.id});
-        res.status(200).json("All notes are deleted");
+        res.status(200).json({ errors: [{ msg: 'All notes are deleted' }] });
     } catch (error) {
         console.error(error.message);
-        res.status(500).json("Server Error");
+        res.status(500).json({ errors: [{ msg: 'Server Error' }] });
     }
 })
 
@@ -111,15 +110,17 @@ router.delete("/", auth, async (req, res) => {
 // @desc    get all note from current user
 // @access  private
 router.get("/", auth, async (req, res) => {
+
     try {
-        const notes = await Note.findOne({user: req.user.id}).populate("user", ["username", "avatar"]);
+        const notes = await Note.findOne({user: req.user.id}).populate("user", ["username"]);
+
         if (!notes || notes === null){
-            return res.status(400).json("Note not found");
+            return res.status(400).json({ errors: [{ msg: 'Note is not found' }] });
         }
         res.status(200).json(notes);
     } catch (error) {
         console.error(error.message);
-        res.status(500).json("Server Error");
+        res.status(500).json({ errors: [{ msg: 'Server Error' }] });
     }
 })
 
@@ -129,16 +130,16 @@ router.get("/", auth, async (req, res) => {
 router.get("/:id", auth, async (req, res) => {
     const _id = req.params.id;
     try {
-        const notes = await Note.findOne({user: req.user.id}).populate("user", ["username", "avatar"]);
+        const notes = await Note.findOne({user: req.user.id}).populate("user", ["username"]);
         if (!notes || notes === null){
-            return res.status(400).json("Note not found");
+            return res.status(400).json({ errors: [{ msg: 'Note is not found' }] });
         }
         const note = notes.note.filter(note => note._id == _id);
 
         res.status(200).json(note);
     } catch (error) {
         console.error(error.message);
-        res.status(500).json("Server Error");
+        res.status(500).json({ errors: [{ msg: 'Server Error' }] });
     }
 })
 
@@ -147,18 +148,3 @@ router.get("/:id", auth, async (req, res) => {
 
 
 module.exports = router;
-
-
-//mon birth cert (khmer and eng orig)
-//mon marriage cert (both ori)
-//police cert (both ori)
-//my birth cert (both copy)
-//mon id (ori)
-//passport 
-//passport photo (20)
-//form I-864 (AOS)
-//naturalization cert
-//DS 260
-//Google Appointment letter
-//Medical Examination result
-//need money

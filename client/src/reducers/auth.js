@@ -20,7 +20,8 @@ export default function(state = initialState, action){
         case REGISTER_SUCCESS:
         case USER_PROFILE_UPDATE_SUCCESS:
         case LOGIN_SUCCESS:
-            localStorage.setItem("token", payload.token);
+            
+            (payload.token && localStorage.setItem("token", payload.token));
             return {
                 ...state,  //this state is the user
                 ...payload, //this payload is the token

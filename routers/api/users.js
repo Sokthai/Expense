@@ -109,7 +109,7 @@ router.put('/', [auth,
             firstname, lastname, username, email, password, avatar
         }
         let user = await User.findOneAndUpdate({_id: req.user.id}, {$set:UpdateUser}, {new: true});
-        console.log("user updated");
+        
         res.status(200).json(user);
     } catch (error) {
         console.error(error.message);
@@ -138,7 +138,7 @@ router.put("/password", [auth,
             const salt = await bcrypt.genSalt(config.get("salt"));
             
             const verify = await bcrypt.compare(oldPassword, user.password);
-            console.log(verify);
+            
             if (!verify){
                 return res.status(401).json({ errors: [{ msg: 'Incorrect old password' }] });
             }
