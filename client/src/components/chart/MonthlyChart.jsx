@@ -162,13 +162,15 @@ function MonthlyChart({getItems, item : {loading, spending}}) {
                         domainPadding={{x: 40}}
                         theme={VictoryTheme.material}
                     >
+                    {console.log(label[1])}
                         <VictoryBar
                             barWidth={10}
                             alignment="middle"
                             data={expenseData}
                             x={(d) => d.category.substring(0, 2)}
-                            y={(d) => (d.expense)}
-                            labels = {label}
+                            y={(d) => (d.expense.toFixed(2))}
+                            
+                            labels = {label.map(lab => lab.toFixed(2))}
                             style={{
                                 title: {fontSize: 3},
                                 data: {

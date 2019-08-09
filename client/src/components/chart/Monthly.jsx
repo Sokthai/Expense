@@ -11,9 +11,9 @@ function Monthly({value}) {
             <ul key={index} className="monthly">
                 <li className="caption">{items.month.toUpperCase()}</li>
                 {items.data.map((data, index) => (    
-                    <li key={index} className={"cate" + index}><span >{data.category.toUpperCase()}</span> <span className="expense">{data.expense}</span></li>
+                    <li key={index} className={"cate" + index}><span >{data.category.toUpperCase()}</span> <span className="expense">{data.expense.toFixed(2)}</span></li>
                 ))}
-                    <li className="total"><span >Total</span> <span className="expense">{items.total}</span></li>
+                    <li className="total"><span >Total</span> <span className="expense">{items.total.toFixed(2)}</span></li>
             </ul>
         ))
         // console.log(month)
