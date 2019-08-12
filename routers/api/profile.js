@@ -28,7 +28,7 @@ router.post('/', [auth,
     ], async (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()){
-            return res.status(422).json({errors: errors.array()});
+            return res.status(400).json({errors: errors.array()});
         }
         const {phone, gender, street, city, state, country, zipcode, question1, question2, question3, answer1, answer2, answer3} = req.body;
         

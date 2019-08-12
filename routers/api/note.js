@@ -14,7 +14,7 @@ router.post("/", [auth,
     ], async (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()){
-            return res.status(422).json({errors: errors.array()});
+            return res.status(400).json({errors: errors.array()});
         }
         try {
             let notes = await Note.findOne({user: req.user.id});
@@ -48,7 +48,7 @@ router.put("/:id", [auth,
     ], async (req, res) => {
         const errors = validationResult(req);
         if (!errors.isEmpty()){
-            return res.status(422).json({errors: errors.array()});
+            return res.status(400).json({errors: errors.array()});
         }
         
         const _id = req.params.id;
