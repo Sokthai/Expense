@@ -1,8 +1,0 @@
-{
-    "mongoURI" : "mongodb+srv://pp:ppDbconnection@ppexpense-wamq6.mongodb.net/test?retryWrites=true",
-    "jwtSecret" : "PPBlaster@9083",
-    "githubClientId" : "5e95c7eb196feb4e0b80",
-    "githubSecret" : "9fdb4f5e5bf361a384ed6becb854a557a77f0052",
-    "salt" : 12,
-    "google2stepPassword" : "fbsudxjnwdjmerbj"
-  }
